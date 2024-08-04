@@ -57,7 +57,7 @@ const Navbar = () => {
                     쇼핑몰
                   </Link>
                 </li>
-                <li className="nav-item">
+                <li className="nav-button-item">
                   <button
                     className="btn btn-link nav-link"
                     onClick={handleLogout}

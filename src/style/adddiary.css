@@ -10,15 +10,15 @@
   font-family: 'RIDIBatang', sans-serif;
 }
 
-.addContainer {
+div .card {
   background-color: rgb(113, 165, 136);
-  width: 90%;
 }
 
 .titleName {
   color: rgb(246, 244, 242);
 }
 
+.titleName i,
 .addSpan {
   color: #c3e3ca;
 }
@@ -27,9 +27,14 @@
   text-align: center;
 }
 
+.addContainer {
+  width: 50%;
+  margin-top: 50px !important;
+}
+
 .Addbtn {
   color: rgb(21, 21, 21);
-  background-color: #9ad6a8;
+  background-color: rgb(139, 199, 166);
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -39,21 +44,16 @@
   background-color: rgb(87, 140, 111);
 }
 
-.formdiv {
-  margin-top: 10px;
-}
-
 .form-label {
-  font-weight: bolder;
-  margin-top: 10px;
+  font-weight: bold;
   color: rgb(42, 41, 40);
 }
 
 .wise {
   text-align: center;
   margin-top: 60px;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .wiseSpan {

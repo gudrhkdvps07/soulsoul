@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
+import '../style/diary.css'
 
 // 날짜 형식을 'yyyy-mm-dd'로 변환하는 헬퍼 함수
 const formatDate = (dateString) => {

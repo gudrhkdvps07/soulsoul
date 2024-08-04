@@ -352,8 +352,8 @@ function Calendar() {
   )
 
   return (
-    <div className="container mt-5">
-      <div className="d-flex justify-content-end mb-3">
+    <div className="container pt-5">
+      <div className="d-flex justify-content-end pb-3">
         <button
           className="btn btn-outline-primary"
           onClick={handleYearlyViewToggle}

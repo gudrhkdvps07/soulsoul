@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
+import '../style/detaildiary.css'
 
 const Diary = () => {
   const [diaries, setDiaries] = useState([]) // 더미 데이터 제거

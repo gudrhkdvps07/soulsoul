@@ -30,7 +30,6 @@ const App = () => {
           <Route path="/add-diary" element={<AddDiary />} />
           <Route path="/edit-diary/:id" element={<DiaryEditPage />} />
         </Routes>
-        <Footer />
       </Router>
     </LoginProvider>
   )
