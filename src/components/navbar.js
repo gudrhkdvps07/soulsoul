@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useLogin } from '../context/LoginContext' // LoginContext에서 훅을 가져옵니다.
+import '../style/navbar.css'
 
 const Navbar = () => {
   const { user, logout } = useLogin() // useLogin 훅을 사용하여 로그인 상태와 로그아웃 기능을 가져옵니다.
@@ -59,7 +60,7 @@ const Navbar = () => {
                 </li>
                 <li className="nav-button-item">
                   <button
-                    className="btn btn-link nav-link"
+                    className="nav-btn btn btn-link nav-link"
                     onClick={handleLogout}
                   >
                     Logout

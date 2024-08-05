@@ -18,7 +18,6 @@ import {
   setYear,
   isAfter,
 } from 'date-fns'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import { setMoodColor, fetchUserCalendar } from './api/api'
 
 const RenderSidebar = ({
@@ -43,7 +42,10 @@ const RenderSidebar = ({
           />
         ))}
       </div>
-      <button className="btn btn-outline-secondary mt-3" onClick={closeSidebar}>
+      <button
+        className="close-btn btn btn-outline-secondary mt-3"
+        onClick={closeSidebar}
+      >
         Close
       </button>
     </div>
@@ -76,36 +78,31 @@ function Calendar() {
     useState(false)
   const [hoveredDate, setHoveredDate] = useState(null)
 
-  const token = localStorage.getItem('token')
+  const token = localStorage.getItem('token') // Directly use the token
 
   useEffect(() => {
     const initializeCalendar = async () => {
       try {
-        const calendarData = await fetchUserCalendar(token)
-        console.log('Received calendar data:', calendarData)
-
-        if (calendarData && calendarData.isSuccess) {
-          // 데이터 로드 성공
-          const colorsData = {}
-          calendarData.data.forEach((entry) => {
-            colorsData[format(new Date(entry.date), 'yyyy-MM-dd')] = entry.color
+        const response = await fetchUserCalendar(token)
+        if (response.isSuccess && Array.isArray(response.calendar)) {
+          console.log('Received calendar data:', response.calendar)
+          const colors = {}
+          const stickers = {}
+          response.calendar.forEach((item) => {
+            const dateStr = format(new Date(item.date), 'yyyy-MM-dd')
+            colors[dateStr] = item.color
+            // 스티커는 서버 데이터에 따라 다를 수 있으므로, 필요한 경우 추가적인 데이터가 있어야 함
           })
-          setMoodColors(colorsData)
+          setMoodColors(colors)
+          setMoodStickers(stickers) // 현재는 스티커가 없음, 필요 시 추가
         } else {
-          console.error(
-            '캘린더 데이터 조회 실패:',
-            calendarData ? calendarData.message : '응답 데이터 없음'
-          )
+          console.error('Invalid calendar data format:', response)
         }
       } catch (error) {
-        console.error(
-          'Error initializing calendar data:',
-          error.message || error
-        )
+        console.error('Error initializing calendar data:', error)
       }
     }
 
-    // 토큰이 있는 경우에만 API 호출
     if (token) {
       initializeCalendar()
     }
@@ -141,21 +138,16 @@ function Calendar() {
     }
   }
 
-  const handleMoodChange = async (color, sticker) => {
+  const handleMoodChange = async (color) => {
     if (selectedDate) {
       const dateStr = format(selectedDate, 'yyyy-MM-dd')
       setMoodColors((prevColors) => ({
         ...prevColors,
         [dateStr]: color || prevColors[dateStr],
       }))
-      setMoodStickers((prevStickers) => ({
-        ...prevStickers,
-        [dateStr]: sticker || prevStickers[dateStr],
-      }))
       try {
         if (!token) throw new Error('Token not provided.')
         await setMoodColor(dateStr, color, token)
-        // 스티커는 서버에 저장하지 않음
         console.log('Mood saved to server')
       } catch (error) {
         console.error('Error saving mood:', error)
@@ -190,7 +182,10 @@ function Calendar() {
 
   const RenderHeader = ({ currentMonth, prevMonth, nextMonth }) => (
     <div className="d-flex justify-content-between align-items-center mb-3">
-      <button className="btn btn-outline-primary" onClick={prevMonth}>
+      <button
+        className="calendar-icon-btn btn btn-outline-secondary"
+        onClick={prevMonth}
+      >
         ◀
       </button>
       <div className="text-center">
@@ -210,7 +205,10 @@ function Calendar() {
           </span>
         )}
       </div>
-      <button className="btn btn-outline-primary" onClick={nextMonth}>
+      <button
+        className="calendar-icon-btn btn btn-outline-secondary"
+        onClick={nextMonth}
+      >
         ▶
       </button>
     </div>
@@ -325,7 +323,10 @@ function Calendar() {
 
   const RenderYearlyViewHeader = ({ currentYear, prevYear, nextYear }) => (
     <div className="d-flex justify-content-between align-items-center mb-3">
-      <button className="btn btn-outline-primary" onClick={prevYear}>
+      <button
+        className="calendar-icon-btn btn btn-outline-secondary"
+        onClick={prevYear}
+      >
         ◀
       </button>
       <div className="text-center">
@@ -345,17 +346,20 @@ function Calendar() {
           </span>
         )}
       </div>
-      <button className="btn btn-outline-primary" onClick={nextYear}>
+      <button
+        className="calendar-icon-btn btn btn-outline-secondary"
+        onClick={nextYear}
+      >
         ▶
       </button>
     </div>
   )
 
   return (
-    <div className="container pt-5">
-      <div className="d-flex justify-content-end pb-3">
+    <div className="container mt-5">
+      <div className="d-flex justify-content-end mb-3">
         <button
-          className="btn btn-outline-primary"
+          className="alert-btn-icon btn btn-outline-secondary"
           onClick={handleYearlyViewToggle}
         >
           {isYearlyView ? 'Monthly View' : 'Yearly View'}

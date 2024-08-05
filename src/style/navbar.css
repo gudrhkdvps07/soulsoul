@@ -11,6 +11,23 @@ nav .navbar {
   background-color: #fffbe6 !important;
 }
 
+.nav-button-item .nav-btn {
+  color: rgb(48, 44, 39) !important;
+  font-size: 15px;
+  padding: 6px;
+  background-color: #fffbe6;
+  margin-top: 3px;
+}
+
+.nav-button-item .nav-btn:hover {
+  background-color: rgb(87, 140, 111);
+  color: white;
+}
+
+.nav-item {
+  margin-left: 6px;
+}
+
 /* 로고 컨테이너 스타일 */
 .navbar-brand {
   display: flex;

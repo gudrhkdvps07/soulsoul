@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap-icons/font/bootstrap-icons.css'
 import { addDiary, checkDiaryAvailability } from './api/api'
 import '../style/adddiary.css'
 
