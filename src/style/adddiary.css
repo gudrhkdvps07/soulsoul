@@ -64,6 +64,12 @@
   color: rgb(113, 165, 136);
 }
 
+@media (max-width: 768px) {
+  .addContainer {
+    width: 90%;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 900px) {
   .addContainer {
     width: 70%;
