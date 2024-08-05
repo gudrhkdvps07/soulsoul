@@ -72,8 +72,9 @@
   justify-content: space-around;
 }
 
-.card {
-  background-color: #ffffffdc;
+.main-card {
+  background-color: #eaf1c7dc !important;
+  border: 1px solid #9692806b !important;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 15px;
@@ -89,13 +90,16 @@
 }
 
 .card-description {
+  color: #302720;
   margin-top: 20px;
 }
 
 .card-title1 {
+  color: rgb(49, 98, 80);
+  font-weight: bold;
   font-size: 1.5em;
   margin-bottom: 10px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 /* 여기서부터 미디어 쿼리 추가 */

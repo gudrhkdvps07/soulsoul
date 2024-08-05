@@ -10,8 +10,9 @@
   font-family: 'RIDIBatang', sans-serif;
 }
 
-div .card {
+.card {
   background-color: rgb(113, 165, 136);
+  padding: 20px;
 }
 
 .titleName {
@@ -29,7 +30,7 @@ div .card {
 
 .addContainer {
   width: 50%;
-  margin-top: 50px !important;
+  margin-top: 100px !important;
 }
 
 .Addbtn {
@@ -44,9 +45,12 @@ div .card {
   background-color: rgb(87, 140, 111);
 }
 
-.form-label {
+.add-form-label {
   font-weight: bold;
   color: rgb(42, 41, 40);
+  text-align: center;
+  display: block;
+  margin: 0 auto;
 }
 
 .wise {

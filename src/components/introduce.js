@@ -1,4 +1,5 @@
 import React from 'react'
+import '../style/mainpage.css'
 
 const Introduce = () => {
   return (
@@ -33,7 +34,7 @@ const Introduce = () => {
 
       <section className="main-section">
         <div className="section-content">
-          <article className="card">
+          <article className="main-card card">
             <div className="card-image">
               <img
                 src={`${process.env.PUBLIC_URL}/img/writer.png`}
@@ -52,7 +53,7 @@ const Introduce = () => {
             </div>
           </article>
 
-          <article className="card">
+          <article className="main-card card">
             <div className="card-image">
               <img src={`${process.env.PUBLIC_URL}/img/mood.png`} alt="mood" />
             </div>
@@ -63,8 +64,8 @@ const Introduce = () => {
                 수도, 열정일 수도 있고, 노란색은 행복일 수도, 불안일 수도
                 있습니다. 그날의 색을 정하고 그 색이 담긴 감정을 일기에
                 적어보세요. 매일의 감정을 기록하며 당신의 기분을 깊이 이해하고
-                알아가는 소중한 시간을 가져보세요. 무드 트래커와 함께 내면의
-                이야기를 색으로 표현해보세요.
+                알아가는 소중한 시간을 가질 수 있습니다. 무드 트래커와 함께
+                내면의 이야기를 색으로 표현해보세요.
               </p>
             </div>
           </article>
